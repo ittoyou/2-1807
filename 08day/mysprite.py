@@ -5,10 +5,10 @@ SCREEN_RECT = pygame.Rect(0,0,480,700)
 CREATE_ENEMY_EVENT = pygame.USEREVENT#敌机的定时器事件常量
 CREATE_BULLET_EVENT = pygame.USEREVENT + 1# 英雄发射子弹事件
 #爆炸销毁图片
-bg1 = pygame.image.load('./images/enemy1_down3.png')
-bg2 = pygame.image.load('./images/enemy1_down3.png')
-bg3 = pygame.image.load('./images/enemy1_down3.png')
-bg4 = pygame.image.load('./images/enemy1_down4.png')
+bg1 = pygame.image.load('./images/enemy2_down1.png')
+bg2 = pygame.image.load('./images/enemy2_down2.png')
+bg3 = pygame.image.load('./images/enemy2_down3.png')
+bg4 = pygame.image.load('./images/enemy2_down4.png')
 #爆炸的精灵组
 enemy1_down_group = pygame.sprite.Group()
 #把爆炸图片放到列表中
@@ -27,11 +27,11 @@ class GameSprite(pygame.sprite.Sprite):
 		self.rect.y+=self.speed
 class EnemySprite(GameSprite):
 	def __init__(self):
-		#imagename = './images/enemy-2.gif'
+		imagename = './images/enemy-2.gif'
+		super(EnemySprite,self).__init__(imagename)
+		#randomImageNum = random.randint(1,3)
+		#self.planeImageName = './images/enemy' + str(randomImageNum) +'.png'
 		#super(EnemySprite,self).__init__(self.planeImageName)
-		randomImageNum = random.randint(1,3)
-		self.planeImageName = './images/enemy' + str(randomImageNum) +'.png'
-		super(EnemySprite,self).__init__(self.planeImageName)
 
 		#self.image = pygame.image.load(self.planeImageName).covert()
 		self.speed = random.randint(1,20)
